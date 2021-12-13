@@ -73,3 +73,17 @@ pub trait Mountable {
         }
     }
 }
+
+#[cfg(feature = "actix-files")]
+impl Mountable for actix_files::Files {
+    fn path(&self) -> &str { "" }
+
+    /// Map of HTTP methods and the associated API operations.
+    fn operations(&mut self) -> BTreeMap<HttpMethod, DefaultOperationRaw> { BTreeMap::default() }
+
+    /// The definitions recorded by this object.
+    fn definitions(&mut self) -> BTreeMap<String, DefaultSchemaRaw> { BTreeMap::default() }
+
+    /// The security definitions recorded by this object.
+    fn security_definitions(&mut self) -> BTreeMap<String, SecurityScheme> { BTreeMap::default() }
+}
