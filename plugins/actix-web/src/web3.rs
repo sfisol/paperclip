@@ -1,6 +1,5 @@
 //! Proxy module for [`actix_web::web`](https://docs.rs/actix-web/*/actix_web/web/index.html).
-#![cfg(any(feature = "actix2", feature = "actix3"))]
-
+#[cfg(any(feature = "actix2", feature = "actix3"))]
 extern crate actix_service1 as actix_service;
 
 #[cfg(feature = "actix3")]

@@ -52,6 +52,7 @@ actix-service2 = { version = "2", package = "actix-service" }
 actix-web2 = { version = "2", default-features = false, package = "actix-web" }
 actix-web3 = { version = "3", default-features = false, package = "actix-web" }
 actix-web4 = { version = "4", default-features = false, package = "actix-web" }
+actix-files = { version = "0" }
 chrono_dev = { version = "0.4", features = ["serde"], package = "chrono" }
 futures = "0.3"
 uuid_dev = { version = "0.8", features = ["serde"], package = "uuid" }
@@ -62,6 +63,7 @@ env_logger = "0.8"
 
 [features]
 # actix-web support
+# default = ["actix4", "files"]
 actix-nightly = ["actix4-nightly"]
 actix4-nightly = ["actix4", "paperclip-actix/nightly"]
 actix3-nightly = ["actix3", "paperclip-actix/nightly"]
@@ -84,7 +86,7 @@ v3 = ["openapiv3", "indexmap", "v2", "paperclip-core/v3", "paperclip-actix/v3"]
 # Features for implementing traits for dependencies.
 actix-multipart = ["paperclip-core/actix-multipart"]
 actix-session = ["paperclip-core/actix-session"]
-actix-files = ["paperclip-core/actix-files"]
+actix-files = ["paperclip-core/actix-files", "paperclip-actix/files"]
 chrono = ["paperclip-core/chrono"]
 rust_decimal = ["paperclip-core/rust_decimal"]
 url = ["paperclip-core/url"]

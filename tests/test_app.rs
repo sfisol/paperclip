@@ -1894,6 +1894,48 @@ fn test_impl_traits() {
     );
 }
 
+#[cfg(feature = "files")]
+#[test]
+#[allow(unreachable_code)]
+fn test_actix_files() {
+    use paperclip_actix::Files;
+
+    run_and_check_app(
+        || {
+            App::new()
+                .wrap_api()
+                .with_json_spec_at("/api/spec")
+                .service(Files::new("/directory", "./directory/").index_file("index.html"))
+                .build()
+        },
+        |addr| {
+            let resp = CLIENT
+                .get(&format!("http://{}/api/spec", addr))
+                .send()
+                .expect("request failed?");
+
+            check_json(
+                resp,
+                json!({
+                  "info":{"title":"","version":""},
+                  "definitions": {
+                  },
+                  "paths": {
+                    "/directory": {
+                      "get": {
+                        "responses": {
+                            "200": {}
+                        }
+                      }
+                    }
+                  },
+                  "swagger": "2.0"
+                }),
+            );
+        },
+    );
+}
+
 #[test]
 #[allow(unreachable_code)]
 fn test_operation_with_generics() {
