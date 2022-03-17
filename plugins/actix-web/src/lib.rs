@@ -27,6 +27,11 @@ pub mod app3;
 #[cfg(not(feature = "actix4"))]
 pub use app3 as app;
 
+#[cfg(feature = "files")]
+pub mod files;
+#[cfg(feature = "files")]
+pub use files::Files;
+
 pub use self::{
     app::{App, OpenApiExt},
     web::{Resource, Route, Scope},

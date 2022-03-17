@@ -52,6 +52,7 @@ actix-web-validator3 = { version = "3.0", package = "actix-web-validator" }
 #actix-web2 = { version = "2", default-features = false, package = "actix-web" }
 actix-web3 = { version = "3", default-features = false, package = "actix-web" }
 actix-web4 = { version = "4", default-features = false, package = "actix-web" }
+actix-files = { version = "0" }
 chrono_dev = { version = "0.4", features = ["serde"], package = "chrono" }
 futures = "0.3"
 uuid0_dev = { version = "0", features = ["serde"], package = "uuid" }
@@ -91,7 +92,7 @@ cli-ng = ["cli", "paperclip-ng", "openapiv3-paper"]
 actix-multipart = ["paperclip-core/actix-multipart"]
 actix-session = ["paperclip-core/actix-session"]
 actix-identity = ["paperclip-core/actix-identity"]
-actix-files = ["paperclip-core/actix-files"]
+actix-files = ["paperclip-core/actix-files", "paperclip-actix/files"]
 actix3-validator = ["paperclip-core/actix3-validator"]
 actix4-validator = ["paperclip-core/actix4-validator"]
 chrono = ["paperclip-core/chrono"]
