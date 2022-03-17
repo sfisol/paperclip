@@ -84,7 +84,7 @@ v3 = ["openapiv3", "indexmap", "v2", "paperclip-core/v3", "paperclip-actix/v3"]
 # Features for implementing traits for dependencies.
 actix-multipart = ["paperclip-core/actix-multipart"]
 actix-session = ["paperclip-core/actix-session"]
-actix-files = ["paperclip-core/actix-files"]
+actix-files = ["paperclip-core/actix-files", "paperclip-actix/actix-files"]
 chrono = ["paperclip-core/chrono"]
 rust_decimal = ["paperclip-core/rust_decimal"]
 url = ["paperclip-core/url"]
